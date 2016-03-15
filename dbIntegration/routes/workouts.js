@@ -77,7 +77,6 @@ router.post('/:id', function(req,res,next){
 		workoutHours: req.body.hours,
 		userName: req.body.person
 	});
-	console.log(workout);
 	// update the model
 	Workout.update({_id:id}, workout, function(err){
 		if (err){
@@ -90,6 +89,21 @@ router.post('/:id', function(req,res,next){
 		}
 	})
 
+});
+
+router.get('/delete/:id', function(req,res,next){
+	var id = req.params.id;
+	console.log(id);
+
+	Workout.remove({ _id: id}, function(err){
+		if(err){
+			console.log(err);
+			res.end(err);
+		}
+		else{
+			res.redirect('/workouts');
+		}
+	})
 })
 //make public
 module.exports= router;
