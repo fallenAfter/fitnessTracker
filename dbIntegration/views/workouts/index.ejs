@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title><%= title %></title>
+</head>
+<body>
+	<a href="/workouts/add">Add Workout</a>
+	<table>
+		<thead>
+			<td>date</td>
+			<td>Workout</td>
+			<td>Hours</td>
+			<td>name</td>
+			<td>edit</td>
+			<td>delete</td>
+		</thead>
+		<tbody>
+			<% for(var counter= 0;counter<workout.length;counter++){  %>
+				<tr>
+					<td><%= workout[counter].date %></td>
+					<td><%= workout[counter].workoutTitle %></td>
+					<td><%= workout[counter].workoutHours %></td>
+					<td><%= workout[counter].userName %></td>
+					<td><a href="workouts/<%=workout[counter]._id %>">edit</a></td>
+					<td><a href="workouts/delete/<%= workout[counter]._id %>">delete</a></td>
+				</tr>
+			<% } %>
+		</tbody>
+	</table>
+</body>
+</html>

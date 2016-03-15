@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title><%= title %></title>
+</head>
+<body>
+	<main>
+		<h1><%= title %></h1>
+		<form action="add" method="post">
+			<label for="workoutTitle">Workout Title</label>
+			<input type="text" name="workoutTitle" id="workoutTitle" required>
+			<label for="hours">Hours</label>
+			<input type="range" min="1" max="20" name="hours" id="hours" value="10">
+			<output for="hours" id="outputHours">10</output>
+			<label for="person">Person</label>
+			<select name="person" id="person">
+				<option value="Brandon">Brandon</option>
+				<option value="Sarah">Sarah</option>
+			</select>
+			<input type="submit" value="submit">
+		</form>
+	</main>	
+	<script>
+		var hours= document.getElementById('hours');
+		var outputHours= document.getElementById('outputHours');
+
+		hours.addEventListener('input', function(){
+			outputHours.value= hours.value;
+		});
+	</script>
+</body>
+</html>
